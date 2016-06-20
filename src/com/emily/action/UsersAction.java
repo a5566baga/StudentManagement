@@ -1,5 +1,7 @@
 package com.emily.action;
 
+import org.apache.struts2.interceptor.validation.SkipValidation;
+
 import com.emily.entity.Users;
 import com.emily.service.impl.UsersDAOImpl;
 import com.emliy.service.UsersDAO;
@@ -17,11 +19,37 @@ public class UsersAction extends SuperAction implements ModelDriven<Users> {
 	public String login(){
 		UsersDAO userDao = new UsersDAOImpl();
 		if(userDao.usersLogin(user)){
+			//在session中保存成功的用户
+			session.setAttribute("loginUserName", user.getUsername());
+			
 			return "login_success";
 		}else {
 			return "login_failure";
 		}
 	}
+	
+	@SkipValidation
+	public String logout(){
+		if(session.getAttribute("loginUserName") != null){
+			session.removeAttribute("loginUserName");
+		}
+		return "logout_success";
+	}
+	
+	@Override
+	//表单验证
+	public void validate() {
+		// TODO Auto-generated method stub
+		//用户名不能为空
+		if("".equals(user.getUsername())){
+			this.addFieldError("usernameError", "用户名不能为空!");
+		}
+		//密码不能少于6位
+		if(user.getPassword().length() < 6){
+			this.addFieldError("passwordError", "密码不能少于6位!");
+		}
+	}
+
 	@Override
 	public Users getModel() {
 		// TODO Auto-generated method stub
