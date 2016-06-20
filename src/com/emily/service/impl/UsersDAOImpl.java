@@ -18,15 +18,21 @@ public class UsersDAOImpl implements UsersDAO {
 		String hql = "";
 		try {
 			Session session = MyHibernateSessionFactory.getSessionFactory().getCurrentSession();
-			hql = "from　users where username =? and password =? ";
+			hql = "from　Users u where username=? and password=?";
 			transaction = session.beginTransaction();
 			Query query = session.createQuery(hql);
+			
+			/*String sql = "select * from　Users where username = ? and password = ?";
+			Query query2 = session.createSQLQuery(sql);
+			query2.setParameter(0, "ss");
+			query2.setParameter(1, "123");*/
 			
 			query.setParameter(0, user.getUsername());
 			query.setParameter(1, user.getPassword());
 			List list = query.list();
+
 			transaction.commit();//提交事务
-			System.out.println("okk//////");
+			
 			if(list.size() > 0){
 				return true;
 			}else {

@@ -10,6 +10,8 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.junit.Test;
 
+import com.emily.entity.Users;
+
 public class TestFirst {
 
 	// 创建sessionFactory
@@ -44,7 +46,12 @@ public class TestFirst {
 		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		session = sessionFactory.openSession();
 		transaction = session.beginTransaction();
-		Query query = session.createQuery("from USERS");
+		Query query = session.createQuery("from Users");
+		Users users = new Users();
+		users.setUsername("qqq");
+		users.setPassword("123456");
+		session.save(users);
+		transaction.commit();
 	}
 
 }
