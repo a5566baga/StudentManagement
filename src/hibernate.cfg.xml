@@ -5,17 +5,17 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">138538</property>
         <property name="hibernate.connection.url">jdbc:mysql:///studentmanage</property>
-        <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="hibernate.current_session_context_class">thread</property>
         
-        <mapping resource="com/emily/entity/Student.hbm.xml"/>
-        <mapping resource="com/emily/entity/User.hbm.xml"/>
+        <mapping resource="com/emily/entity/Students.hbm.xml"/>
+        <mapping resource="com/emily/entity/Users.hbm.xml"/>
     </session-factory>
     
      
