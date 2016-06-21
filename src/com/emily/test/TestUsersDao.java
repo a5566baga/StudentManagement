@@ -17,8 +17,6 @@ public class TestUsersDao {
 	public void test() {
 		Users user = new Users(1,"ss","123");
 		UsersDAO usersDao = new UsersDAOImpl();
-//		usersDAO.usersLogin(user);
-//		System.out.println(s);
 		Assert.assertEquals(true, usersDao.usersLogin(user));
 	}
 	

@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-6-21 0:42:22 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.emily.entity.Users" table="USERS">
+    <class name="com.emily.entity.Users">
         <id name="uid" type="int">
             <column name="UID" />
             <generator class="native" />

@@ -7,7 +7,9 @@ public class Users {
 	private String username;
 	private String password;
 	
-	public Users(){}
+	public Users(){
+		
+	}
 	
 	public Users(int uid, String username, String password) {
 		this.uid = uid;

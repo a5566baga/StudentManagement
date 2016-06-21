@@ -3,9 +3,9 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2016-6-21 0:42:22 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.emily.entity.Students" table="STUDENTS">
+    <class name="com.emily.entity.Students">
         <id name="sid" type="java.lang.String">
-            <column name="SID" />
+            <column name="SID" length="8"/>
             <generator class="assigned" />
         </id>
         <property name="sname" type="java.lang.String">
@@ -15,7 +15,7 @@
             <column name="GENDER" />
         </property>
         <property name="birthday" type="date">
-            <column name="BIRTHDAY" />
+            <column name="BIRTHDAY" length="10"/>
         </property>
         <property name="address" type="java.lang.String">
             <column name="ADDRESS" />
